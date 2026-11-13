@@ -1,0 +1,179 @@
+<!doctype html>
+<!-- The guide that ships in the .dmg. make.sh prints it to "READ ME FIRST.pdf". -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pareto for Mac</title>
+<style>
+  /* The digital look: light grey paper, black type, seven-segment numbers, one amber light.
+     make.sh copies the fonts next to this file. */
+  @font-face { font-family: "DSEG7"; src: url(DSEG7Classic-Bold.ttf); font-weight: 700; }
+  @font-face { font-family: "Geist"; src: url(Geist-Regular.ttf); font-weight: 400; }
+  @font-face { font-family: "Geist"; src: url(Geist-Medium.ttf); font-weight: 500; }
+  @font-face { font-family: "Geist"; src: url(Geist-SemiBold.ttf); font-weight: 600; }
+  @font-face { font-family: "Geist Mono"; src: url(GeistMono-Regular.ttf); font-weight: 400; }
+  @font-face { font-family: "Geist Mono"; src: url(GeistMono-Medium.ttf); font-weight: 500; }
+  @page { size: Letter; margin: 0.6in 0.7in; }
+  :root { --ink: #0c0c0c; --soft: #3a3a36; --dim: #62625d; --line: #cfcfc9; --rule: #e1e1dc; --well: #efefeb; --ghost: #d8d8d2; --amber: #f5a000; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; color: var(--soft); font: 10.5pt/1.5 "Geist", -apple-system, sans-serif; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  header img { width: 52px; height: 52px; }
+  .word { position: relative; display: inline-block; font: 700 26pt/1 "DSEG7", monospace; color: var(--ink); }
+  .word .ghost { position: absolute; left: 0; top: 0; color: var(--ghost); }
+  .word span:last-child { position: relative; }
+  .light { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--amber); margin: 0 8px 2px 8px; }
+  .tag { font: 500 10.5pt "Geist Mono", monospace; color: var(--ink); }
+  .meta { color: var(--dim); margin: 6px 0 0; font: 9pt "Geist Mono", monospace; }
+  h2 {
+    display: flex; align-items: baseline; gap: 10px;
+    margin: 20px 0 6px; padding-top: 12px; border-top: 1px dashed var(--line);
+    font: 500 9pt "Geist Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink);
+    break-after: avoid;
+  }
+  h2 .n { font: 700 15pt/1 "DSEG7", monospace; letter-spacing: 0; }
+  p { margin: 6px 0; }
+  ol, ul { margin: 6px 0; padding-left: 22px; }
+  li { margin: 3px 0; break-inside: avoid; }
+  li > ul { margin: 3px 0; }
+  b { font-weight: 600; color: var(--ink); }
+  kbd {
+    font: 500 9pt/1 "Geist Mono", monospace; padding: 2px 6px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--well); color: var(--ink); white-space: nowrap;
+  }
+  code { font: 9pt "Geist Mono", monospace; background: var(--well); color: var(--ink); padding: 1px 5px; border-radius: 4px; }
+  .note { color: var(--dim); }
+  figure { margin: 8px 0 4px; break-inside: avoid; }
+  figure img { width: 100%; border-radius: 10px; border: 1px solid var(--line); display: block; }
+  .shot-key { width: 70%; }
+  .shot-allow { width: 70%; }
+  table { border-collapse: collapse; width: 100%; margin: 6px 0; break-inside: avoid; }
+  td { padding: 5px 8px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  td:first-child { width: 38%; }
+  .two-col .section { break-inside: avoid; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 26px; }
+  .two-col h2 { margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="icon.png" alt="">
+  <div>
+    <h1 style="margin:0"><span class="word"><span class="ghost" aria-hidden="true">888888</span><span>Pareto</span></span><span class="light"></span><span class="tag">for Mac</span></h1>
+    <p class="meta">version __VERSION__ · needs macOS 13 or later · by Pareto Labs</p>
+  </div>
+</header>
+<p>A search bar for your whole Mac. Press <kbd>⌥ Option</kbd> <kbd>Space</kbd> in any app to open apps and files, or to ask about the window in front, including scanned PDFs and pictures.</p>
+
+<h2><span class="n">1</span>Install</h2>
+<ol>
+  <li>Drag <b>Pareto</b> onto <b>Applications</b> in the window this guide came in.</li>
+  <li>Open your Applications folder and double-click <b>Pareto</b>.</li>
+  <li>If macOS says it can't open the app, click <b>Done</b>. Then:
+    <ul>
+      <li>Open <b>System Settings</b> and click <b>Privacy &amp; Security</b>.</li>
+      <li>Scroll to the bottom and click <b>Open Anyway</b> next to Pareto.</li>
+      <li>Type your Mac password if it asks, then click <b>Open Anyway</b> again.</li>
+    </ul>
+    <span class="note">You only do this once. macOS asks because the app isn't registered with Apple yet.</span>
+  </li>
+  <li>If you opened it straight from the download window, it offers to move itself. Click <b>Move and Open</b>.</li>
+  <li>A welcome window opens, and a magnifier appears in the menu bar at the top of your screen.</li>
+</ol>
+
+<h2><span class="n">2</span>Pick a plan</h2>
+<p>In the welcome window, under <b>PLAN</b>, click one:</p>
+<ul>
+  <li><b>Free</b> opens apps and files by name and finds exact words, in windows and in pictures. Nothing leaves your Mac, and you don't need a key. Skip to step 4.</li>
+  <li><b>AI plan</b> understands plain English, like "the pdf about my taxes", and answers questions about the window in front. It needs a Jev key, a Nebius key (for NVIDIA Nemotron), or both.</li>
+</ul>
+
+<h2><span class="n">3</span>Add your keys (AI plan only)</h2>
+<p>Jev finds answers fastest. A Nebius key adds NVIDIA Nemotron, which writes a short answer, thinks harder when you ask, and finds answers when there's no Jev key. With only one key, everything still works.</p>
+<p><b>Jev key</b></p>
+<ol>
+  <li>In the welcome window, click <b>get a key ↗</b>. Your browser opens TypeSafe's site, console.typesafe.ai.</li>
+  <li>Sign in, or make an account.</li>
+  <li>On the <b>API keys</b> page, click <b>+ Create key</b> at the top right. (If you land somewhere else, click <b>API Keys</b> in the menu on the left.)</li>
+  <li>Type a name, like <code>pareto</code>, and click <b>Create key</b>.</li>
+  <li>Copy the new key. It starts with <code>apikey_</code>.</li>
+  <li>Back in the welcome window, click in the box that says <b>paste your Jev key</b>, press <kbd>⌘ Command</kbd> <kbd>V</kbd>, then click <b>save</b>.</li>
+  <li><b>saved to your Keychain</b> appears under the box.</li>
+</ol>
+<figure class="shot-key"><img src="welcome-key.png" alt="The welcome window with the AI plan chosen and the box for the Jev key"></figure>
+<p class="note">Jev charges by use. A question about a long web page costs about a tenth of a cent. If the bar says your Jev account is out of funds, open console.typesafe.ai, click <b>Billing</b>, then <b>Add funds</b>.</p>
+
+<p><b>Nebius key</b></p>
+<ol>
+  <li>Under <b>NEBIUS KEY</b>, click <b>get a key ↗</b>. Your browser opens tokenfactory.nebius.com.</li>
+  <li>Sign in, or make an account, then create an API key and copy it.</li>
+  <li>Click in the box that says <b>paste your Nebius key</b>, press <kbd>⌘ Command</kbd> <kbd>V</kbd>, then click <b>save</b>. It checks the key and shows <b>Lightning ✓ Super ✓ Ultra ✓</b>.</li>
+  <li>In your Nebius account profile, switch on <b>Zero Data Retention</b>, so Nebius doesn't keep what Pareto sends it.</li>
+</ol>
+
+<h2><span class="n">4</span>Let it read the screen</h2>
+<p>Two switches, both optional. You can skip them if you only want to open apps and files.</p>
+<ul>
+  <li><b>The window in front</b> lets it read the text of the window in front. Click <b>allow it</b>, then turn on the switch next to <b>Pareto</b> in System Settings.</li>
+  <li><b>Pictures on screen</b> lets it read text drawn as a picture, like in Figma or a photo on a web page. Click <b>allow it</b>, turn on the switch, then click <b>Quit &amp; Reopen</b> when macOS asks. This needs macOS 14 or later.</li>
+</ul>
+<p>Type your Mac password if System Settings asks. Under <b>READING THE SCREEN</b>, the amber light turns black and says <b>allowed</b>. Scanned PDFs and picture files don't need the second switch; they're read from the file.</p>
+<figure class="shot-allow"><img src="welcome-allow.png" alt="The two reading sections, each with an allow it button"></figure>
+
+<h2><span class="n">5</span>Use it</h2>
+<p>Press <kbd>⌥ Option</kbd> <kbd>Space</kbd> in any app. Type what you want, then press <kbd>Return</kbd>.</p>
+<table>
+  <tr><td><code>open slack</code></td><td>Opens Slack.</td></tr>
+  <tr><td><code>i want to do some maths</code></td><td>Opens Calculator. AI plan.</td></tr>
+  <tr><td><code>find my tax pdf from march</code></td><td>Lists matching files. The AI plan understands "from march".</td></tr>
+  <tr><td><code>when is rent due?</code></td><td>With a web page, PDF or picture in front, shows the sentence that answers it. Click <b>show it</b> to go there. AI plan.</td></tr>
+  <tr><td><code>what does living here cost?</code> then <kbd>⌘</kbd> <kbd>Return</kbd></td><td>Thinks harder: Nemotron 3 Ultra reads all of it and answers. AI plan with a Nebius key.</td></tr>
+  <tr><td><code>go to youtube.com</code></td><td>Opens the site in your browser.</td></tr>
+  <tr><td><code>15% of 80</code></td><td>Shows 12. <kbd>Return</kbd> copies it.</td></tr>
+</table>
+<p><kbd>↑</kbd> <kbd>↓</kbd> pick a result. <kbd>Tab</kbd> on a PDF or picture asks your question about it without opening it. <kbd>⌘ Command</kbd> <kbd>Return</kbd> thinks harder on a window, PDF or answer, and shows a file in Finder. <kbd>Esc</kbd> goes back or closes the bar.</p>
+<p><b>Voice:</b> hold <kbd>⌥ Option</kbd> <kbd>Space</kbd>, speak, then let go. The first time, macOS asks to use the microphone and speech recognition; click <b>Allow</b>. Wispr Flow works too: open the bar and speak, and it runs when you stop.</p>
+<p><b>If another app already uses ⌥ Option Space</b> (the ChatGPT app does), the welcome window says so. Pick another shortcut there, or later from the magnifier in the menu bar: <b>Settings…</b>.</p>
+
+<div class="two-col">
+<div class="section">
+<h2>What it can do</h2>
+<ul>
+  <li>Open apps by name, by initials (<code>ss</code> for System Settings), or on the AI plan by description ("the app I use for notes").</li>
+  <li>Find files through Spotlight, by name or by what's inside them.</li>
+  <li>Answer a question about the window in front: web pages in Chrome and Safari, Mail, Notes, TextEdit, and PDFs in Preview or Chrome. It quotes the sentence that answers and takes you to it.</li>
+  <li>Read scanned PDFs and picture files (PNG, JPG, HEIC and others) with Apple's text recognition, on your Mac.</li>
+  <li>With screen reading on, read text drawn as a picture in the window in front.</li>
+  <li>Open websites, search Google, do sums, and list what you opened lately.</li>
+</ul>
+</div>
+<div class="section">
+<h2>What it can't do</h2>
+<ul>
+  <li>Write answers without a Nebius key. Answers are then sentences quoted from the window.</li>
+  <li>Read hidden text: collapsed sections, closed menus, other tabs, or posts a page hasn't loaded yet.</li>
+  <li>Read any window except the one in front.</li>
+  <li>Read all of a very long web page. It stops reading after 4 seconds, so the end may be missed.</li>
+  <li>Read pictures on screen on macOS 13.</li>
+  <li>Understand plain English on the Free plan, which matches names and exact words.</li>
+</ul>
+</div>
+</div>
+
+<h2>Privacy</h2>
+<ul>
+  <li>It reads the window in front only when you ask about it, and keeps nothing it read. It never reads password boxes.</li>
+  <li>With screen reading on, it takes one picture of the window in front, only when that window's text has no answer. The picture is read on your Mac and then dropped.</li>
+  <li>On the Free plan, nothing leaves your Mac. On the AI plan, what you ask and the text being searched go to Jev, from TypeSafe AI, and to Nebius when Nemotron is used, and nowhere else.</li>
+  <li>Your keys are stored in your Mac's Keychain.</li>
+  <li>Voice uses Apple's speech recognition, on your Mac when it supports that. It listens only while you hold the shortcut.</li>
+</ul>
+
+<h2>Update or remove it</h2>
+<p><b>To update,</b> open the new download and drag <b>Pareto</b> onto Applications. Click <b>Replace</b>. Your key, settings and permissions stay.</p>
+<p><b>Had Ctrl+F by meaning before?</b> That was this app's old name. The first time Pareto opens, it offers to move the old copy to the Trash. Click <b>Move to Trash</b>. Your key, settings and permissions carry over.</p>
+<p><b>To remove it,</b> click the magnifier in the menu bar and choose <b>Quit</b>. Then drag <b>Pareto</b> from Applications to the Trash (called Bin on some Macs).</p>
+
+</body>
+</html>

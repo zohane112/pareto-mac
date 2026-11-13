@@ -1,0 +1,22 @@
+Pareto for Mac
+
+1. Drag "Pareto" onto the Applications folder next to it.
+2. Open Applications, right-click "Pareto" and choose Open, then Open again.
+   (macOS asks this once, because the app isn't from the App Store.)
+   If macOS only offers "Done" or "Move to Bin": open System Settings > Privacy & Security,
+   scroll down and click "Open Anyway" next to Pareto.
+3. A magnifier appears in the menu bar. Press Option+Space in any app to open the bar.
+
+What you can type or say:
+  open slack                          opens an app
+  find my tax pdf from march          finds a file by what it is
+  what does this page say about ...?  answers from the window in front, PDFs too
+
+To answer questions about the window in front, macOS will ask you once to allow
+Pareto under Privacy & Security > Accessibility.
+It only reads the window in front, only when you ask, and never keeps what it read.
+
+Free: apps and files by name, and exact words in the window in front. Nothing leaves your Mac.
+AI plan: Jev understands what you mean. Add your Jev key in Settings (menu bar magnifier > Settings).
+
+Voice: works with Wispr Flow and macOS dictation. When you stop speaking, it runs.

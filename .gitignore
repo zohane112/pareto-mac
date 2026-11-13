@@ -1,0 +1,72 @@
+# ---------------------------------------------------------------------------
+# Credentials — never commit. The Jev key lives in the macOS Keychain
+# (service `typesafe-jev`) and in chrome.storage.local, never in a file.
+# The app's signing certificate lives outside the project, in
+# ~/Library/Application Support/CtrlFByMeaning/signing.
+# ---------------------------------------------------------------------------
+.env
+.env.*
+*.env
+secrets.*
+*secret*
+*credential*
+*.pem
+*.key
+*.p12
+*.pfx
+*.keychain
+*.keychain-db
+signing/
+password
+
+# ---------------------------------------------------------------------------
+# Packaged downloads. Rebuilt by tools/pack-chrome.sh and desktop/build.sh.
+# ---------------------------------------------------------------------------
+/dist/
+dist/
+
+# ---------------------------------------------------------------------------
+# Swift / Xcode build output
+# ---------------------------------------------------------------------------
+desktop/build/
+.build/
+DerivedData/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcuserstate
+.swiftpm/
+Packages/
+*.o
+*.dSYM/
+
+# ---------------------------------------------------------------------------
+# Node
+# ---------------------------------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.npm/
+
+# ---------------------------------------------------------------------------
+# Python (dmgbuild venv under desktop/build, already covered, plus strays)
+# ---------------------------------------------------------------------------
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# ---------------------------------------------------------------------------
+# macOS / editor noise
+# ---------------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+._*
+.Spotlight-V100
+.Trashes
+*.swp
+*~
+
+# ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Private planning notes
+.scratch/

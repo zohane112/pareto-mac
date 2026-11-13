@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleName</key><string>Pareto</string>
+  <key>CFBundleDisplayName</key><string>Pareto</string>
+  <key>CFBundleIdentifier</key><string>com.ctrlf-by-meaning.mac</string>
+  <key>CFBundleExecutable</key><string>Pareto</string>
+  <key>CFBundleIconFile</key><string>AppIcon</string>
+  <key>CFBundlePackageType</key><string>APPL</string>
+  <key>CFBundleShortVersionString</key><string>__VERSION__</string>
+  <key>CFBundleVersion</key><string>__BUILD__</string>
+  <key>LSMinimumSystemVersion</key><string>13.0</string>
+  <key>LSUIElement</key><true/>
+  <key>LSApplicationCategoryType</key><string>public.app-category.productivity</string>
+  <key>NSHighResolutionCapable</key><true/>
+  <key>NSHumanReadableCopyright</key><string>Pareto, by Pareto Labs. Search by meaning uses Jev from TypeSafe AI.</string>
+  <key>NSAccessibilityUsageDescription</key><string>Pareto reads the window in front, only when you open the bar and ask about it, to find the answer. It never keeps what it reads.</string>
+  <key>NSMicrophoneUsageDescription</key><string>Hold the shortcut and speak: Pareto listens only while you hold it.</string>
+  <key>NSSpeechRecognitionUsageDescription</key><string>Your words are turned into text on this Mac, when it supports that, so you can open apps and ask questions by voice.</string>
+  <key>CFBundleURLTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleURLName</key><string>com.ctrlf-by-meaning.mac</string>
+      <key>CFBundleURLSchemes</key><array><string>ctrlf-meaning</string></array>
+    </dict>
+  </array>
+</dict>
+</plist>
