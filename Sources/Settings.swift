@@ -1,4 +1,4 @@
-// Settings: the plan, the Jev and Nebius keys (kept in the macOS Keychain), the shortcut, voice,
+// Settings: the Jev and Nebius keys (kept in the macOS Keychain), the shortcut, voice,
 // and starting at login. Nothing here is ever sent anywhere except each key, to its own service.
 
 import AppKit
@@ -6,10 +6,10 @@ import Carbon
 import Security
 import ServiceManagement
 
-enum Plan: String, CaseIterable, Identifiable {
+/// Search by meaning turns on when a Jev or Nebius key is saved. There's no plan to pick:
+/// with no key, everything stays word for word and on this Mac.
+enum Plan: String {
     case free, ai
-    var id: String { rawValue }
-    var title: String { self == .free ? "Free" : "AI plan" }
 }
 
 /// The shortcuts offered in settings. ⌥Space is the default; Chrome's Control+Shift+F stays
@@ -92,9 +92,7 @@ final class Settings: ObservableObject {
     private var testNebiusKey: String? { env["CTRLF_NEBIUS_KEY"] }
     private var noJev: Bool { env["CTRLF_NO_JEV"] == "1" }
 
-    @Published var plan: Plan {
-        didSet { defaults.set(plan.rawValue, forKey: "plan") }
-    }
+    @Published var plan: Plan
     @Published var shortcut: Shortcut {
         didSet { defaults.set(shortcut.rawValue, forKey: "shortcut") }
     }
@@ -110,8 +108,8 @@ final class Settings: ObservableObject {
     @Published var holdToTalk: Bool {
         didSet { defaults.set(holdToTalk, forKey: "holdToTalk") }
     }
-    @Published private(set) var hasJevKey: Bool
-    @Published private(set) var hasNebiusKey: Bool
+    @Published private(set) var hasJevKey: Bool { didSet { plan = hasJevKey || hasNebiusKey ? .ai : .free } }
+    @Published private(set) var hasNebiusKey: Bool { didSet { plan = hasJevKey || hasNebiusKey ? .ai : .free } }
     /// After a search by meaning, Nemotron 3 Super writes a short answer (needs a Nebius key).
     @Published var writeAnswers: Bool {
         didSet { defaults.set(writeAnswers, forKey: "writeAnswers") }
@@ -133,7 +131,7 @@ final class Settings: ObservableObject {
         hasJevKey = hasKey
         hasNebiusKey = hasNebius
         writeAnswers = defaults.object(forKey: "writeAnswers") as? Bool ?? true
-        plan = Plan(rawValue: defaults.string(forKey: "plan") ?? "") ?? (hasKey || hasNebius ? .ai : .free)
+        plan = hasKey || hasNebius ? .ai : .free
         shortcut = Shortcut(rawValue: defaults.string(forKey: "shortcut") ?? "") ?? .optionSpace
         look = Look(rawValue: defaults.string(forKey: "look") ?? "") ?? .digital
         actAfterVoice = defaults.object(forKey: "actAfterVoice") as? Bool ?? true
@@ -183,8 +181,6 @@ final class Settings: ObservableObject {
         }
     }
 
-    /// Our page about the plans, the same one the Chrome extension links to.
-    static let planPage = URL(string: "https://claude.ai/artifact/2w17FYYvgxQPHXwvAoF3pd#plans")!
     static let jevKeys = URL(string: "https://console.typesafe.ai/keys")!
     static let nebiusKeys = URL(string: "https://tokenfactory.nebius.com/")!
 }

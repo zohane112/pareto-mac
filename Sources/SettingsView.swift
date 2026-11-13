@@ -1,4 +1,4 @@
-// Settings, which also greets new users: the shortcut, the plan, the Jev and Nebius keys,
+// Settings, which also greets new users: the shortcut, the Jev and Nebius keys,
 // reading the screen, the look, voice, and starting at login. Numbered in the order a new user
 // sets them.
 
@@ -48,19 +48,11 @@ struct SettingsView: View {
                                 }
                             }
                         }
-                        step(2, "plan") {
-                            PillSwitch(options: Plan.allCases.map { ($0, $0.title.lowercased()) }, selection: $settings.plan)
-                            Text(settings.plan == .free
-                                 ? "Free opens apps and files by name and finds exact words, in windows and pictures. Nothing leaves this Mac."
-                                 : "Jev understands what you mean. It picks the app or file, and finds the answer in the window in front, PDFs and pictures too. NVIDIA Nemotron writes a short answer, thinks harder when you ask, and stands in for Jev.")
-                                .modifier(Prose())
-                            Link("see the plans ↗", destination: Settings.planPage).font(Theme.mono(12)).foregroundColor(Theme.ink)
-                        }
-                        if settings.plan == .ai {
-                            step(3, "jev key") { keySection }
-                            step(4, "nebius key, for nvidia nemotron") { nebiusSection }
-                        }
-                        step(settings.plan == .ai ? 5 : 3, "reading the screen") {
+                        step(2, "jev key, optional") { keySection }
+                        step(3, "nebius key, for nvidia nemotron, optional") { nebiusSection }
+                        Text("With a Jev or Nebius key, Pareto understands what you mean: it picks the app or file, and finds the answer in the window in front, PDFs and pictures too. With neither, it opens apps and files by name and finds exact words, and nothing leaves this Mac.")
+                            .modifier(Prose())
+                        step(4, "reading the screen") {
                             permissionRow(title: "The window in front", detail: "Only when you ask. Never kept.", allowed: state.trusted,
                                           steps: ["Click allow it.", "In System Settings, turn on the switch next to Pareto."]) {
                                 WindowReader.askForPermission()
@@ -74,19 +66,19 @@ struct SettingsView: View {
                                 }
                             }
                         }
-                        step(settings.plan == .ai ? 6 : 4, "look") {
+                        step(5, "look") {
                             PillSwitch(options: [(Look.digital, "digital"), (Look.terminal, "terminal")], selection: $settings.look)
                             Text(settings.look == .digital ? "Light grey and black, with numbers like a digital clock." : "Plain black and grey, all monospace.")
                                 .modifier(Prose())
                         }
-                        step(settings.plan == .ai ? 7 : 5, "voice") {
+                        step(6, "voice") {
                             toggle("Hold \(settings.shortcut.label) and speak; let go to run it", $settings.holdToTalk)
                             toggle("Run as soon as I finish speaking with Wispr Flow or macOS dictation", $settings.actAfterVoice)
                         }
-                        step(settings.plan == .ai ? 8 : 6, "start") {
+                        step(7, "start") {
                             toggle("Open Pareto when I log in", $settings.launchAtLogin)
                         }
-                        Text("v\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "dev") · on Free nothing leaves this Mac · on the AI plan, what you ask and the text being searched go only to Jev and to Nebius (Nemotron)")
+                        Text("v\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "dev") · with no key nothing leaves this Mac · with a key, what you ask and the text being searched go only to Jev and to Nebius (Nemotron)")
                             .font(Theme.mono(10.5)).foregroundColor(Theme.mute)
                             .fixedSize(horizontal: false, vertical: true)
                     }
@@ -114,7 +106,7 @@ struct SettingsView: View {
 
     /// Tall enough to show the first steps without scrolling, but never taller than the screen.
     private var height: CGFloat {
-        let want: CGFloat = settings.plan == .ai ? 990 : 870
+        let want: CGFloat = 990
         let room = (NSScreen.main?.visibleFrame.height ?? 900) - 76
         return max(560, min(want, room))
     }

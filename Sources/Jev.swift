@@ -21,7 +21,7 @@ struct JevError: Error, LocalizedError {
         case .offline: return "Couldn't reach Jev. Check your internet connection."
         case .tooBig: return "This is too long to search in one go."
         case .server: return "Jev returned an error. Try again."
-        case .freePlan: return "Search by meaning is part of the AI plan."
+        case .freePlan: return "Search by meaning needs a Jev or Nebius key. Add one in settings."
         }
     }
 }

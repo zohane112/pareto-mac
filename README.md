@@ -29,12 +29,12 @@ More: [opening an app from plain English](docs/open-app.png), [the empty bar](do
 
 ## Install
 
-The download opens as a window with the app, an arrow to Applications, and **READ ME FIRST**, a three-page guide with pictures. It covers installing, the plans, pasting a Jev key, allowing window reading, and what the app can and can't do. The guide's source is `dmg/READ ME FIRST.html`.
+The download opens as a window with the app, an arrow to Applications, and **READ ME FIRST**, a three-page guide with pictures. It covers installing, adding keys, allowing window reading, and what the app can and can't do. The guide's source is `dmg/READ ME FIRST.html`.
 
 1. Open `dist/Pareto-<version>.dmg` and drag **Pareto** onto **Applications**.
 2. Double-click it in Applications. If macOS says it can't open the app, click **Done**, then open **System Settings › Privacy & Security**, scroll down, and click **Open Anyway**. macOS asks this once, because the app isn't notarized yet. On macOS 15 and later, right-click › Open no longer skips this.
 3. The welcome window opens.
-   - Pick **Free** or **AI plan**. The AI plan needs a Jev key, a Nebius key, or both. Each is kept in your Keychain.
+   - Keys are optional. Add a Jev key, a Nebius key, or both to search by meaning. Each is kept in your Keychain.
      - **Jev:** click **get a key ↗** under **jev key**, make a key at [console.typesafe.ai/keys](https://console.typesafe.ai/keys), paste it, and click **save**.
      - **Nebius (Nemotron):** click **get a key ↗** under **nebius key**, make a key at [tokenfactory.nebius.com](https://tokenfactory.nebius.com/), paste it, and click **save**. It checks the key and lists Lightning ✓ Super ✓ Ultra ✓. Then switch on **Zero Data Retention** in your Nebius account profile.
    - Click **allow it** to let it read the window in front, under Privacy & Security › Accessibility. That's only needed for questions about what's on screen.
@@ -56,9 +56,9 @@ A magnifier appears in the menu bar. Its menu has **Settings…** and **Quit**.
 
 **Speaking or pasting** a request runs it by itself when that can't surprise you: a sum, a question about the window, an app named outright, or a pick Jev is sure about. Anything else waits for Enter.
 
-## Plans
+## With and without a key
 
-| | Free | AI plan |
+| | No key | Jev or Nebius key |
 | --- | --- | --- |
 | Apps and files by name | ✓ | ✓ |
 | Exact words in the window in front | ✓ | ✓ |

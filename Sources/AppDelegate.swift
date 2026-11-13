@@ -80,7 +80,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 self?.panel.appearance = Theme.appearance
             }
         }.store(in: &watchers)
-        // The settings window grows when the AI plan adds its Jev key section.
+        // Refit the settings window when a key is saved or removed.
         Settings.shared.$plan.dropFirst().sink { [weak self] _ in
             DispatchQueue.main.async { self?.fitSettings() }
         }.store(in: &watchers)

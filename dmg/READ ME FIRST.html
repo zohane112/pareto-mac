@@ -82,15 +82,8 @@
   <li>A welcome window opens, and a magnifier appears in the menu bar at the top of your screen.</li>
 </ol>
 
-<h2><span class="n">2</span>Pick a plan</h2>
-<p>In the welcome window, under <b>PLAN</b>, click one:</p>
-<ul>
-  <li><b>Free</b> opens apps and files by name and finds exact words, in windows and in pictures. Nothing leaves your Mac, and you don't need a key. Skip to step 4.</li>
-  <li><b>AI plan</b> understands plain English, like "the pdf about my taxes", and answers questions about the window in front. It needs a Jev key, a Nebius key (for NVIDIA Nemotron), or both.</li>
-</ul>
-
-<h2><span class="n">3</span>Add your keys (AI plan only)</h2>
-<p>Jev finds answers fastest. A Nebius key adds NVIDIA Nemotron, which writes a short answer, thinks harder when you ask, and finds answers when there's no Jev key. With only one key, everything still works.</p>
+<h2><span class="n">2</span>Add your keys (optional)</h2>
+<p>Without a key, Pareto opens apps and files by name and finds exact words, in windows and in pictures, and nothing leaves your Mac. To skip keys, go to step 3. A key adds plain English, like "the pdf about my taxes", and answers about the window in front. Jev finds answers fastest. A Nebius key adds NVIDIA Nemotron, which writes a short answer, thinks harder when you ask, and finds answers when there's no Jev key. With only one key, everything still works.</p>
 <p><b>Jev key</b></p>
 <ol>
   <li>In the welcome window, click <b>get a key ↗</b>. Your browser opens TypeSafe's site, console.typesafe.ai.</li>
@@ -101,7 +94,7 @@
   <li>Back in the welcome window, click in the box that says <b>paste your Jev key</b>, press <kbd>⌘ Command</kbd> <kbd>V</kbd>, then click <b>save</b>.</li>
   <li><b>saved to your Keychain</b> appears under the box.</li>
 </ol>
-<figure class="shot-key"><img src="welcome-key.png" alt="The welcome window with the AI plan chosen and the box for the Jev key"></figure>
+<figure class="shot-key"><img src="welcome-key.png" alt="The welcome window with the box for the Jev key"></figure>
 <p class="note">Jev charges by use. A question about a long web page costs about a tenth of a cent. If the bar says your Jev account is out of funds, open console.typesafe.ai, click <b>Billing</b>, then <b>Add funds</b>.</p>
 
 <p><b>Nebius key</b></p>
@@ -112,7 +105,7 @@
   <li>In your Nebius account profile, switch on <b>Zero Data Retention</b>, so Nebius doesn't keep what Pareto sends it.</li>
 </ol>
 
-<h2><span class="n">4</span>Let it read the screen</h2>
+<h2><span class="n">3</span>Let it read the screen</h2>
 <p>Two switches, both optional. You can skip them if you only want to open apps and files.</p>
 <ul>
   <li><b>The window in front</b> lets it read the text of the window in front. Click <b>allow it</b>, then turn on the switch next to <b>Pareto</b> in System Settings.</li>
@@ -121,14 +114,14 @@
 <p>Type your Mac password if System Settings asks. Under <b>READING THE SCREEN</b>, the amber light turns black and says <b>allowed</b>. Scanned PDFs and picture files don't need the second switch; they're read from the file.</p>
 <figure class="shot-allow"><img src="welcome-allow.png" alt="The two reading sections, each with an allow it button"></figure>
 
-<h2><span class="n">5</span>Use it</h2>
+<h2><span class="n">4</span>Use it</h2>
 <p>Press <kbd>⌥ Option</kbd> <kbd>Space</kbd> in any app. Type what you want, then press <kbd>Return</kbd>.</p>
 <table>
   <tr><td><code>open slack</code></td><td>Opens Slack.</td></tr>
-  <tr><td><code>i want to do some maths</code></td><td>Opens Calculator. AI plan.</td></tr>
-  <tr><td><code>find my tax pdf from march</code></td><td>Lists matching files. The AI plan understands "from march".</td></tr>
-  <tr><td><code>when is rent due?</code></td><td>With a web page, PDF or picture in front, shows the sentence that answers it. Click <b>show it</b> to go there. AI plan.</td></tr>
-  <tr><td><code>what does living here cost?</code> then <kbd>⌘</kbd> <kbd>Return</kbd></td><td>Thinks harder: Nemotron 3 Ultra reads all of it and answers. AI plan with a Nebius key.</td></tr>
+  <tr><td><code>i want to do some maths</code></td><td>Opens Calculator. Needs a key.</td></tr>
+  <tr><td><code>find my tax pdf from march</code></td><td>Lists matching files. With a key, it understands "from march".</td></tr>
+  <tr><td><code>when is rent due?</code></td><td>With a web page, PDF or picture in front, shows the sentence that answers it. Click <b>show it</b> to go there. with a Nebius key.</td></tr>
+  <tr><td><code>what does living here cost?</code> then <kbd>⌘</kbd> <kbd>Return</kbd></td><td>Thinks harder: Nemotron 3 Ultra reads all of it and answers. with a Nebius key with a Nebius key.</td></tr>
   <tr><td><code>go to youtube.com</code></td><td>Opens the site in your browser.</td></tr>
   <tr><td><code>15% of 80</code></td><td>Shows 12. <kbd>Return</kbd> copies it.</td></tr>
 </table>
@@ -140,7 +133,7 @@
 <div class="section">
 <h2>What it can do</h2>
 <ul>
-  <li>Open apps by name, by initials (<code>ss</code> for System Settings), or on the AI plan by description ("the app I use for notes").</li>
+  <li>Open apps by name, by initials (<code>ss</code> for System Settings), or, with a key, by description ("the app I use for notes").</li>
   <li>Find files through Spotlight, by name or by what's inside them.</li>
   <li>Answer a question about the window in front: web pages in Chrome and Safari, Mail, Notes, TextEdit, and PDFs in Preview or Chrome. It quotes the sentence that answers and takes you to it.</li>
   <li>Read scanned PDFs and picture files (PNG, JPG, HEIC and others) with Apple's text recognition, on your Mac.</li>
@@ -156,7 +149,7 @@
   <li>Read any window except the one in front.</li>
   <li>Read all of a very long web page. It stops reading after 4 seconds, so the end may be missed.</li>
   <li>Read pictures on screen on macOS 13.</li>
-  <li>Understand plain English on the Free plan, which matches names and exact words.</li>
+  <li>Understand plain English without a key; without one it matches names and exact words.</li>
 </ul>
 </div>
 </div>
@@ -165,7 +158,7 @@
 <ul>
   <li>It reads the window in front only when you ask about it, and keeps nothing it read. It never reads password boxes.</li>
   <li>With screen reading on, it takes one picture of the window in front, only when that window's text has no answer. The picture is read on your Mac and then dropped.</li>
-  <li>On the Free plan, nothing leaves your Mac. On the AI plan, what you ask and the text being searched go to Jev, from TypeSafe AI, and to Nebius when Nemotron is used, and nowhere else.</li>
+  <li>Without a key, nothing leaves your Mac. With a key, what you ask and the text being searched go to Jev, from TypeSafe AI, and to Nebius when Nemotron is used, and nowhere else.</li>
   <li>Your keys are stored in your Mac's Keychain.</li>
   <li>Voice uses Apple's speech recognition, on your Mac when it supports that. It listens only while you hold the shortcut.</li>
 </ul>

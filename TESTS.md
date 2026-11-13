@@ -70,7 +70,7 @@ Started with `CTRLF_TEST=1`. Pictures were saved by the app itself:
 - Typing "the app for doing maths" then Enter at once: it waited for Jev, then opened Calculator, which was added to recents.
 - A PDF question: "how much is the pet deposit?" → 99% sure, page 3, 103 ms, with the exact sentence. "when is rent due" → page 2. **open at page** opened the PDF viewer at the right page.
 - A sum, `(12*4.5)+15% of 80`, showed "= 66", and Enter copied it.
-- The welcome/settings window, on the Free and AI plans.
+- The welcome/settings window, with and without a key.
 - Without `CTRLF_TEST=1`, test links do nothing but open the bar. For example, `snapshot` wrote no file.
 
 ## The download

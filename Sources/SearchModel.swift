@@ -1,5 +1,5 @@
 // What the bar does. As you type it lists apps, files, "find in this window" and a web
-// search, all found on this Mac. On the AI plan, Jev then works out what you meant: which
+// search, all found on this Mac. With a key, Jev then works out what you meant: which
 // app, which file, or a question about the front window (Nemotron Lightning when Jev can't).
 // Enter (or a pause after speaking) runs the top choice. After a search by meaning, Nemotron 3
 // Super writes a short answer, and ⌘ Enter has Nemotron 3 Ultra think harder.
@@ -491,7 +491,7 @@ final class SearchModel: ObservableObject {
         if answer != nil { showAnswer(); return }
         let q = query.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !q.isEmpty else { return }
-        // On the AI plan, a phrase ("the pdf about my taxes") waits for Jev's reading of it,
+        // With a key, a phrase ("the pdf about my taxes") waits for Jev's reading of it,
         // unless the top row is already an exact app name.
         let exactApp: Bool = {
             guard let row = rows.first, case .app(let app) = row.kind else { return false }
@@ -573,7 +573,7 @@ final class SearchModel: ObservableObject {
     func thinkHarder() {
         let q = query.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !q.isEmpty else { return }
-        guard settings.plan == .ai else { status = .error("Think harder is part of the AI plan."); return }
+        guard settings.plan == .ai else { status = .error("Think harder needs a Nebius key. Add one in settings."); return }
         guard Nemotron.shared.hasKey else { status = .error("Think harder uses Nemotron 3 Ultra. Add a Nebius key in settings."); return }
         let picked: URL? = {
             if answer == nil, rows.indices.contains(selected), case .file(let f) = rows[selected].kind, PDFReader.canRead(f.url) { return f.url }
@@ -891,7 +891,7 @@ final class SearchModel: ObservableObject {
         }
     }
 
-    /// Free plan: the passages that contain every word typed, like normal Ctrl+F.
+    /// No key: the passages that contain every word typed, like normal Ctrl+F.
     /// Returns true when some passage has every word.
     @discardableResult
     private func wordSearch(_ q: String, passages: [TextTools.Passage], elements: [AXUIElement], pdf: PDFText?,
